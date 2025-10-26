@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>System Status</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <style>
+    /* Full‑height layout to vertically center the card */
+    html, body {
+      height: 100%;
+    }
+    .container-fluid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="card text-center p-4" style="min-width: 300px;">
+      <!-- Status message (must be green) -->
+      <div id="status-message" class="text-success mb-3">System Operational!</div>
+      <!-- Test button -->
+      <button id="test-btn" class="btn btn-primary">Test Alert</button>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+    // Wait for the DOM to be ready
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('test-btn');
+      if (!btn) {
+        console.error('Element with id="test-btn" not found.');
+        return;
+      }
+      // Attach click handler with basic error handling
+      btn.addEventListener('click', function () {
+        try {
+          alert('Button clicked!');
+        } catch (e) {
+          console.error('Failed to show alert:', e);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
